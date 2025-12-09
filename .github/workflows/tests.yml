@@ -27,6 +27,8 @@ jobs:
       - name: Run test
         run: python -m pytest tests/test_hello.py
 
+      - name: Build image
+        run: docker build -t $IMAGE:latest .
       - name: Create timestamp
         run: echo "TS=$(date +%Y-%m-%d-%H-%M-%S)" >> $GITHUB_ENV
 
