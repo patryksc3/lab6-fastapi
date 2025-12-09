@@ -24,3 +24,9 @@ jobs:
 
       - name: Run test
         run: python -m pytest tests/test_hello.py
+
+      - name: Create timestamp
+        run: echo "TS=$(date +%Y-%m-%d-%H-%M-%S)" >> $GITHUB_ENV
+
+      - name: Create tag
+        run: docker tag $IMAGE:latest $IMAGE:${{ env.TS }}
